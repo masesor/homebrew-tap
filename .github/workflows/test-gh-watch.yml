@@ -17,13 +17,13 @@ jobs:
     strategy:
       matrix:
         os:
-          - macos-latest
+          - macos-15
           - macos-15-intel
     runs-on: ${{ matrix.os }}
     steps:
       - name: Install from tap
         run: |
           brew tap masesor/tap
-          brew install masesor/tap/gh-watch
+          brew install --force-bottle masesor/tap/gh-watch
       - name: Verify binary
         run: gh-watch --version
