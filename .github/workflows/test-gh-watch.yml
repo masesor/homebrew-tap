@@ -1,6 +1,7 @@
 name: Test gh-watch formula
 
 on:
+  workflow_dispatch:
   push:
     paths:
       - Formula/gh-watch.rb
