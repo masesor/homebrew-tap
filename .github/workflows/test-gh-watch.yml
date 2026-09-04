@@ -1,0 +1,29 @@
+name: Test gh-watch cask
+
+on:
+  push:
+    paths:
+      - Casks/gh-watch.rb
+      - .github/workflows/test-gh-watch.yml
+  pull_request:
+    paths:
+      - Casks/gh-watch.rb
+
+permissions:
+  contents: read
+
+jobs:
+  install:
+    strategy:
+      matrix:
+        os:
+          - macos-latest
+          - macos-15-intel
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Install from tap
+        run: |
+          brew tap masesor/tap
+          brew install --cask masesor/tap/gh-watch
+      - name: Verify binary
+        run: gh-watch --version
