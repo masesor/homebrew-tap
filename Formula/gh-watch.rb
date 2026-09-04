@@ -1,24 +1,16 @@
 class GhWatch < Formula
   desc "Keyboard-first GitHub Actions and pull request TUI"
   homepage "https://github.com/masesor/gh-watch"
-  version "0.1.0"
-  revision 1
+  version "0.1.1"
   license "MIT"
-
-  bottle do
-    root_url "https://github.com/masesor/homebrew-tap/releases/download/gh-watch-0.1.0"
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a3386a1876119552bad5c1218f97080b3af98367aef5ad86e370c74f862ace59"
-    sha256 cellar: :any_skip_relocation, sequoia: "35f13eb4f9954496a0c57fa46bff16e9d438d10989d9c08d301a821fd21b182b"
-  end
 
   on_macos do
     if Hardware::CPU.arm?
       url "https://github.com/masesor/gh-watch/releases/download/v#{version}/gh-watch_#{version}_darwin_arm64.tar.gz"
-      sha256 "298b78fe30e3765caf009d00d3b236fcbe3f3fdd726b90ba2906ba9409a446f5"
+      sha256 "678728e0754f166b4d374302e9e530b9bdf71ae66f68fa89a85f3a4a708ff7d2"
     else
       url "https://github.com/masesor/gh-watch/releases/download/v#{version}/gh-watch_#{version}_darwin_amd64.tar.gz"
-      sha256 "138602df645c128d41e98c1066fa75c50389f9130190e0ba804bea59af2ebf07"
+      sha256 "92763240ac8fa3fa31083ab4cbe4d7333307af1784f82109e4706b73b6b705be"
     end
   end
 
