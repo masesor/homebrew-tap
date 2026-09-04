@@ -24,7 +24,7 @@ brew install masesor/tap/gh-watch
 
 For a GitHub Enterprise host, authenticate it separately with `gh auth login --hostname HOST`.
 
-The formula builds locally from the tagged source so it also works on managed Macs that reject quarantined, ad-hoc-signed binaries.
+The formula installs a checksum-pinned binary through Homebrew's Cellar, avoiding both Cask quarantine and local Xcode build requirements.
 
 ### AWS Billing Bar
 
