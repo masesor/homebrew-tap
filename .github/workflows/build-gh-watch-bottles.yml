@@ -1,0 +1,30 @@
+name: Build gh-watch bottles
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  bottle:
+    strategy:
+      matrix:
+        os:
+          - macos-15
+          - macos-15-intel
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Install formula for bottling
+        run: |
+          brew tap masesor/tap
+          brew install --build-bottle masesor/tap/gh-watch
+      - name: Build and upload bottle
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BOTTLE_TAG: gh-watch-0.1.0
+        run: |
+          mkdir bottles
+          cd bottles
+          brew bottle --json --root-url="https://github.com/masesor/homebrew-tap/releases/download/${BOTTLE_TAG}" gh-watch
+            gh release upload "${BOTTLE_TAG}" ./*.tar.gz --repo "${GITHUB_REPOSITORY}" --clobber
