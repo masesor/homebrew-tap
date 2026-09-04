@@ -4,6 +4,13 @@ class GhWatch < Formula
   version "0.1.1"
   license "MIT"
 
+  bottle do
+    root_url "https://github.com/masesor/homebrew-tap/releases/download/gh-watch-0.1.1"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "664e5b538f59e9cc8f063971b8d97065f4ed7bec52b4338be919700dc1c315a0"
+    sha256 cellar: :any_skip_relocation, sequoia: "e2165382ebf680d2862d1adac313258cf1793f1b98518bdb95cec35084af0b1c"
+  end
+
   on_macos do
     if Hardware::CPU.arm?
       url "https://github.com/masesor/gh-watch/releases/download/v#{version}/gh-watch_#{version}_darwin_arm64.tar.gz"
