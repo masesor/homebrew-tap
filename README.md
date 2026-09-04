@@ -8,14 +8,14 @@ Custom Homebrew tap for macOS applications and command-line tools.
 brew tap masesor/tap https://github.com/masesor/homebrew-tap
 ```
 
-## Available Casks
+## Available Packages
 
 ### gh-watch
 
 A k9s-style terminal dashboard for workflow runs, pull requests, branches, and searchable GitHub Actions logs across personal and enterprise hosts.
 
 ```bash
-brew install --cask masesor/tap/gh-watch
+brew install masesor/tap/gh-watch
 ```
 
 **Requirements:**
@@ -23,6 +23,8 @@ brew install --cask masesor/tap/gh-watch
 - GitHub CLI authentication (`gh auth login`)
 
 For a GitHub Enterprise host, authenticate it separately with `gh auth login --hostname HOST`.
+
+The formula builds locally from the tagged source so it also works on managed Macs that reject quarantined, ad-hoc-signed binaries.
 
 ### AWS Billing Bar
 
