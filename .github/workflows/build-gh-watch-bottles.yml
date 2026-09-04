@@ -27,4 +27,7 @@ jobs:
           mkdir bottles
           cd bottles
           brew bottle --json --root-url="https://github.com/masesor/homebrew-tap/releases/download/${BOTTLE_TAG}" gh-watch
-            gh release upload "${BOTTLE_TAG}" ./*.tar.gz --repo "${GITHUB_REPOSITORY}" --clobber
+          for bottle in gh-watch--*.tar.gz; do
+            mv "${bottle}" "${bottle/gh-watch--/gh-watch-}"
+          done
+          gh release upload "${BOTTLE_TAG}" ./*.tar.gz --repo "${GITHUB_REPOSITORY}" --clobber
